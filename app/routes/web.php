@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*ログイン画面ルート定義*/
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+/*新規ユーザー登録画面ルート定義*/
+Route::get('/register', function () {
+    return view('auth.register');
+});
