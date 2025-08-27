@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Authenticate;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,23 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
+
 /*新規ユーザー登録画面ルート定義*/
 Route::get('/register', function () {
     return view('auth.register');
+});
+
+/*パスワード忘れ画面ルート定義*/
+Route::get('/password/reset', function () {
+    return view('auth.password_reset');
+});
+
+/*loginController*/
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
 });
