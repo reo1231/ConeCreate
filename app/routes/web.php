@@ -25,10 +25,12 @@ Route::get('/login', function () {
 });
 
 
-/*新規ユーザー登録画面ルート定義*/
-Route::get('/register', function () {
-    return view('auth.register');
-});
+
+// 新規ユーザー登録画面のルート
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+
+// ユーザー登録処理のルート
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
 /*パスワード忘れ画面ルート定義*/
 Route::get('/password/reset', function () {
@@ -36,11 +38,13 @@ Route::get('/password/reset', function () {
 });
 
 /*loginController*/
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
-
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])
+->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', function () {
-        return view('home');
+        return view('auth.home');
     });
 });
+
+

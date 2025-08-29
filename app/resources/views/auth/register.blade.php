@@ -11,10 +11,11 @@
     <div class="login-container">
         <h2>新規ユーザー登録</h2>
 
-        <form action="/register" method="POST">
+        <form action="{{ route('register') }}" method="POST">
+            @csrf
             <div class="login-form-group">
                 <label for="username">ユーザー名</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="user_name" required>
             </div>
 
             <div class="login-form-group">

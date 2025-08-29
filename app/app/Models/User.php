@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements AuthenticatableContract
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, AuthenticatableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +24,11 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->password_hash;
+    }
 
     /**
      * The attributes that should be hidden for serialization.
