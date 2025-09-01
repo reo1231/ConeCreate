@@ -20,9 +20,9 @@ class User extends Authenticatable implements AuthenticatableContract
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
-        'password',
+        'password_hash',
     ];
 
     public function getAuthPassword()

@@ -48,3 +48,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
