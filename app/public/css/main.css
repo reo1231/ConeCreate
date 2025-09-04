@@ -1,0 +1,150 @@
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.three-column-layout {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* 左側 */
+.sidebar-left {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+/* 中央 */
+.content {
+    flex: 2;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 右側*/
+.sidebar-right {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.sidebar-left .main-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-left .main-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-left .main-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-left .main-menu a:hover {
+    background-color: #e2e2e2;
+}
+
+.post-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.post-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.post-button:hover {
+    transform: scale(1.05);
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.post-item .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-item .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.post-item .user-name {
+    font-weight: bold;
+}
+
+.post-item .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.post-item .post-caption {
+    margin: 0 0 15px 0;
+}
+
+.post-item .post-actions {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem;
+}
+
+.post-item .reaction, .post-item .bookmark {
+    cursor: pointer;
+}
+
+.no-posts {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\Authenticate;
-
+use App\Http\Controllers\Auth\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,33 +20,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*ログイン画面ルート定義*/
 Route::get('/login', function () {
     return view('auth.login');
 });
 
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
-
-// 新規ユーザー登録画面のルート
-Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-
-// ユーザー登録処理のルート
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
-
-/*パスワード忘れ画面ルート定義*/
 Route::get('/password/reset', function () {
     return view('auth.password_reset');
 });
 
-/*loginController*/
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])
-->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', function () {
-        return view('auth.home');
-    });
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/posts/create', [HomeController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [HomeController::class, 'store'])->name('posts.store');
 });
-
-
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

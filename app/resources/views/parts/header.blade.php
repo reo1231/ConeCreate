@@ -2,8 +2,8 @@
     <div class="header-left">
         </div>
     <div class="header-center">
-        <a href="{{ url('/') }}" class="logo">
-            アプリロゴ
+        <a href="{{ url('/home') }}" class="logo">
+            アプリのロゴをあとで置く
         </a>
     </div>
 
