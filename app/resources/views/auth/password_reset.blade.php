@@ -11,10 +11,24 @@
     <div class="login-container">
         <h2>パスワード再設定</h2>
 
-        <form action="/password/email" method="POST">
+        <form action="{{ route('password.email') }}" method="POST">
+            @csrf
+
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <div class="login-form-group">
                 <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="login-button-container">
@@ -23,7 +37,7 @@
         </form>
 
         <div class="login-links">
-            <p><a href="/login">ログイン画面に戻る</a></p>
+            <p><a href="{{ route('login') }}">ログイン画面に戻る</a></p>
         </div>
     </div>
 

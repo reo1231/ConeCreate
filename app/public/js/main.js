@@ -1,22 +1,16 @@
 $(document).ready(function() {
-    const modal = $('#createPostModal');
-    const openModalBtn = $('#openModalBtn');
-    const closeButton = modal.find('.close-button');
+    const navLinks = $('.main-menu ul li a');
+    const contents = $('.content-section');
 
-    //モーダルを表示
-    openModalBtn.on('click', function() {
-        modal.css('display', 'flex');
+    navLinks.on('click', function(event) {
+        event.preventDefault();
+
+        const targetId = $(this).attr('href').substring(1);
+
+        contents.hide();
+
+        $(`#${targetId}-content`).show();
     });
 
-    //モーダルを非表示
-    closeButton.on('click', function() {
-        modal.css('display', 'none');
-    });
-
-    //外側をクリックで非表示
-    $(window).on('click', function(event) {
-        if ($(event.target).is(modal)) {
-            modal.css('display', 'none');
-        }
-    });
+    $('#home-content').show();
 });

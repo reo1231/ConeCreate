@@ -148,3 +148,465 @@
     font-size: 1.2rem;
     margin-top: 50px;
 }
+/* ページ全体を包むコンテナ */
+.page-container {
+    display: flex;
+    justify-content: center; /* コンテンツを中央に配置 */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+}
+
+/* 3カラムレイアウトのコンテナ */
+.three-column-layout {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    max-width: 1400px; /* 最大幅を設定して見やすくする */
+    padding: 20px;
+    gap: 20px;
+}
+
+/* 左側のサイドバー */
+.sidebar-left {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+/* 中央のコンテンツ部分 */
+.content {
+    flex: 2;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 右側のサイドバー */
+.sidebar-right {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.sidebar-left .main-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-left .main-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-left .main-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-left .main-menu a:hover {
+    background-color: #e2e2e2;
+}
+
+.post-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.post-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.post-button:hover {
+    transform: scale(1.05);
+}
+
+/* 投稿コンテナのスタイル */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 個別投稿のスタイル */
+.post-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.post-item .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-item .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.post-item .user-name {
+    font-weight: bold;
+}
+
+.post-item .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.post-item .post-caption {
+    margin: 0 0 15px 0;
+}
+
+.post-item .post-actions {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem;
+}
+
+.post-item .reaction, .post-item .bookmark {
+    cursor: pointer;
+}
+
+/* 投稿がない場合のメッセージのスタイル */
+.no-posts {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+/* 投稿フォームのスタイル */
+.post-form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-form-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.post-form-container .form-group {
+    margin-bottom: 15px;
+}
+
+.post-form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.post-form-container textarea,
+.post-form-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.post-form-container textarea {
+    resize: vertical;
+}
+
+.post-form-container .submit-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-form-container .submit-button:hover {
+    background-color: #0056b3;
+}
+/* モーダルの背景 */
+.modal {
+    display: none; /* 初期状態では非表示 */
+    position: fixed; /* 画面に固定 */
+    z-index: 1000; /* 他の要素の上に表示 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* スクロール可能にする */
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明の黒い背景 */
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダルのコンテンツ */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* モーダルヘッダー */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-header .modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 閉じるボタン */
+.close-button {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.modal-content-container {
+    padding: 20px;
+}
+.modal-body .form-control-file {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+.modal-body .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+.modal-body .submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.modal-body .submit-button:hover {
+    background-color: #0056b3;
+}
+
+/*DM*/
+.dm-container {
+    display: flex;
+    width: 100%;
+    height: 80vh; /* 画面の高さの80% */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.conversation-list-container {
+    width: 300px;
+    border-right: 1px solid #ddd;
+    background-color: #f8f9fa;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.conversation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.conversation-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.conversation-item:hover {
+    background-color: #f0f2f5;
+}
+
+.conversation-item.active {
+    background-color: #e9ecef;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .user-name {
+    font-weight: bold;
+}
+
+.last-message {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+    padding-left: 50px;
+}
+
+.chat-main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.user-name-chat {
+    margin: 0;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.message-item.received {
+    justify-content: flex-start;
+}
+
+.message-item.sent {
+    justify-content: flex-end;
+}
+
+.message-user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    align-self: flex-start;
+}
+
+.message-bubble {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    line-height: 1.4;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message-item.received .message-bubble {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+.message-item.sent .message-bubble {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom-right-radius: 5px;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    resize: none;
+    margin-right: 10px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}

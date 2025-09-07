@@ -4,17 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,3 +33,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/posts/create', [HomeController::class, 'create'])->name('posts.create');
     Route::post('/posts', [HomeController::class, 'store'])->name('posts.store');
 });
+
+Route::get('/dm', function () {
+    return view('auth.dm');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
